@@ -1,0 +1,113 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qeydiyyat</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-box">
+  <h1>QEYDİYYAT</h1>
+
+  <label>İstifadəçi adı</label>
+  <input type="text" id="regUser" placeholder="username">
+
+  <label>Şifrə</label>
+  <input type="password" id="regPass" placeholder="******">
+
+  <label>Şifrə (təkrar)</label>
+  <input type="password" id="regPass2" placeholder="******">
+
+  <button onclick="register()">Qeydiyyatdan keç</button>
+
+  <button class="back-btn" onclick="goLogin()">
+    Geri qayıt
+  </button>
+</div>
+
+<script src="register.js"></script>
+</body>
+</html><style>* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #0b3d2e, #021b13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 90%;
+  max-width: 360px;
+  background: rgba(0,0,0,0.35);
+  padding: 24px;
+  border-radius: 18px;
+}
+
+h1 {
+  text-align: center;
+  color: #39ff9d;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0 16px;
+  border-radius: 14px;
+  border: none;
+  background: #1f3d33;
+  color: #fff;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  border-radius: 18px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #39ff9d, #1fa86a);
+  margin-top: 10px;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #bbbbbb, #888);
+}</style><script>function register() {
+  const user = document.getElementById("regUser").value.trim();
+  const pass = document.getElementById("regPass").value;
+  const pass2 = document.getElementById("regPass2").value;
+
+  if (!user || !pass || !pass2) {
+    alert("Bütün xanaları doldur ❗");
+    return;
+  }
+
+  if (pass !== pass2) {
+    alert("Şifrələr uyğun gəlmir ❌");
+    return;
+  }
+
+  localStorage.setItem("username", user);
+  localStorage.setItem("password", pass);
+
+  alert("Qeydiyyat uğurla tamamlandı ✅");
+  window.location.href = "login.html";
+}
+
+function goLogin() {
+  window.location.href = "login.html";
+}</script>
